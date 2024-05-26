@@ -45,6 +45,15 @@ public class BookingController {
         }
     }
 
+    @PutMapping("/confirmado/{id}")
+    public ResponseEntity<?> CONFIRMED (@PathVariable UUID id) {
+        try {
+            return ResponseEntity.ok(bookingService.CONFIRMED(id));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
     @PutMapping("/completar/{id}")
     public ResponseEntity<?> COMPLETED (@PathVariable UUID id) {
         try {
@@ -63,7 +72,7 @@ public class BookingController {
         }
     }
 
-    @DeleteMapping("/cancelado/{id}")
+    @PutMapping("/cancelado/{id}")
     public ResponseEntity<?> DELETE (@PathVariable UUID id) {
         try {
             return ResponseEntity.ok(bookingService.CANCELLED(id));

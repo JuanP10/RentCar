@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+  db-service3:
+    image: 'postgres:latest'
+    container_name: 'db-microserviceBooking'
+    environment:
+      - 'POSTGRES_DB=db-book-service'
+      - 'POSTGRES_PASSWORD=booking'
+      - 'POSTGRES_USER=booking'
+    ports:
+      - '5402:5432'
+    networks:
+      - red
+  app-docker:
+    container_name: 'container3-app'
+    image: 'imageservice3-app:1.0.0.'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8002:8080'
+    depends_on:
+      - db-service3
+    environment:
+      - DATABASE_URL=jdbc:postgresql://db-service3:5432/db-book-service
+      - DATABASE_USERNAME=booking
+      - DATABASE_PASSWORD=booking
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://host.docker.internal:8070/eureka/
+    networks:
+      - red
+networks:
+  red:
+    name: 'red'

@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+  db-service2:
+    image: 'postgres:latest'
+    container_name: 'db-microserviceCustomer'
+    environment:
+      - 'POSTGRES_DB=db-customer'
+      - 'POSTGRES_PASSWORD=customer'
+      - 'POSTGRES_USER=customer'
+    ports:
+      - '5401:5432'
+    networks:
+      - red
+  app-docker:
+    container_name: 'container2-app'
+    image: 'imageservice2-app:1.0.0.'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8001:8080'
+    depends_on:
+      - db-service2
+    environment:
+      - DATABASE_URL=jdbc:postgresql://db-service2:5432/db-customer
+      - DATABASE_USERNAME=customer
+      - DATABASE_PASSWORD=customer
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://host.docker.internal:8070/eureka/
+    networks:
+      - red
+networks:
+  red:
+    name: 'red'
