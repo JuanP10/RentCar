@@ -1,0 +1,37 @@
+server:
+  port: 8060
+
+spring:
+  application:
+    name: ApiGatewayLR
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: CarInventoryService
+            uri: lb://carinventoryservice
+            predicates:
+              - Path=/micro/carinventoryservice/**
+          - id: CustomerService
+            uri: lb://customerservice
+            predicates:
+              - Path=/micro/customer/**
+          - id: BookingService
+            uri: lb://boookingservice
+            predicates:
+              - Path=/micro/booking/**
+          - id: PaymentService
+            uri: lb://paymentservice
+            predicates:
+              - Path=/micro/payment/**
+logging:
+  level:
+    root: info
+    org.springframework.cloud.gateway: trace
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+  instance:
+    instanceId: ${spring.application.name}:${random.value}
