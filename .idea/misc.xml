@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/BookingService" />
-    <file type="web" url="file://$PROJECT_DIR$/CarInventoryService" />
-    <file type="web" url="file://$PROJECT_DIR$/CustomerService" />
+    <file type="web" url="file://$PROJECT_DIR$" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
