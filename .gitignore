@@ -11,6 +11,9 @@ target/
 *.iws
 *.iml
 *.ipr
+pom.xml
+.gradle/
+.src/
 
 ### Eclipse ###
 .apt_generated
