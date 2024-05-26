@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/BookingService" />
     <file type="web" url="file://$PROJECT_DIR$/CarInventoryService" />
+    <file type="web" url="file://$PROJECT_DIR$/CustomerService" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
