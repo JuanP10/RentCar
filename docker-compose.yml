@@ -1,0 +1,64 @@
+version: "3.8"
+
+services:
+  ### Posgres database for Customers
+  db-customerservice:
+    container_name: db-Customer
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_customer
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5431:5431"
+    expose:
+      - 5431
+    command: -p 5431
+
+  ### Posgres database for Bookings
+  db-bookingservice:
+    container_name: db-Booking
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_booking
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5430:5430"
+    expose:
+      - 5430
+    command: -p 5430
+
+  ### Posgres database for Car Inventory
+  db-carinventoryservice:
+    container_name: db-CarInventory
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_carinventory
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    command: -p 5432
+
+  ### Posgres database for Car Inventory
+  db-paymentservice:
+    container_name: db-Payment
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_payment
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5433:5433"
+    expose:
+      - 5433
+    command: -p 5433
+
+
