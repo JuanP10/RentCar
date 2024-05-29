@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/micro/booking")
+@RequestMapping("/api/v1")
 
 public class BookingController {
     private final BookingService bookingService;
