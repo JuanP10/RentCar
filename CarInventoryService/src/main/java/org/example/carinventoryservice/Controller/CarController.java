@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("microservice/carInventory")
+@RequestMapping("api/v1")
 @AllArgsConstructor
 @Validated
 

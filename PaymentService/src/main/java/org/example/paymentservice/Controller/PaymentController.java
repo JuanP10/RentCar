@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("microservice/payment")
+@RequestMapping("api/v1")
 @AllArgsConstructor
 @Validated
 public class PaymentController {

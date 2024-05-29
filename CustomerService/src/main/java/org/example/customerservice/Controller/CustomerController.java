@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/micro/customer")
+@RequestMapping("/api/v1")
 public class CustomerController {
 
     private final CustomerService customerService;
