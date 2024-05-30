@@ -11,6 +11,18 @@ spring:
     url: jdbc:postgresql://localhost:5430/ms_booking
     username: admin
     password: 1234
+  cloud:
+    stream:
+      rabbit:
+        binder:
+          brokers: localhost
+      bindings:
+        carInventory:
+            destination: carEvents
+            group: carInventory
+        group:
+            destination: rentalEvents
+
 
 server:
   port: 8081

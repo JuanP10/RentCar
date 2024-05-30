@@ -11,6 +11,15 @@ spring:
     url: jdbc:postgresql://localhost:5430/ms_booking
     username: admin
     password: 1234
+  cloud:
+    stream:
+      rabbit:
+        binder:
+          brokers: localhost
+      bindings:
+        carInventory:
+          destination: carInventory
+
 
 server:
   port: 8081
@@ -26,3 +35,4 @@ okta:
     oauth2:
         issuer: ${OKTA_OAUTH2_ISSUER}
         audience: ${OKTA_OAUTH2_AUDIENCE}
+
