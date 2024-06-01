@@ -1,7 +1,6 @@
 version: "3.8"
 
 services:
-  ### Posgres database for Customers
   db-customerservice:
     container_name: db-Customer
     image: postgres:15.2
@@ -16,7 +15,6 @@ services:
       - 5431
     command: -p 5431
 
-  ### Posgres database for Bookings
   db-bookingservice:
     container_name: db-Booking
     image: postgres:15.2
@@ -31,7 +29,6 @@ services:
       - 5430
     command: -p 5430
 
-  ### Posgres database for Car Inventory
   db-carinventoryservice:
     container_name: db-CarInventory
     image: postgres:15.2
@@ -46,7 +43,6 @@ services:
       - 5432
     command: -p 5432
 
-  ### Posgres database for Car Inventory
   db-paymentservice:
     container_name: db-Payment
     image: postgres:15.2
@@ -61,13 +57,25 @@ services:
       - 5433
     command: -p 5433
 
+  eurekaServer:
+    container_name: eureka-server
+    image: springcloud/eureka
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_APPLICATION_NAME= EurekaServer
+      - EUREKA_CLIENT_REGISTER-WITH-EUREKA=false
+      - EUREKA_CLIENT_FETCH-REGISTRY=false
+      - EUREKA_INSTANCE_PREFER-IP-ADDRESS=true
+
   prometheus:
     image: prom/prometheus:v2.44.0
     container_name: prometheus
     ports:
       - "9090:9090"
     volumes:
-      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
 
   grafana:
     image: grafana/grafana:9.5.2
@@ -76,6 +84,8 @@ services:
       - "3000:3000"
     restart: unless-stopped
     volumes:
-      - ./monitoring/grafana/datasources:/etc/grafana/datasources
+      - ./grafana-datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
 
-
+networks:
+  monitoring:
+    driver: bridge
