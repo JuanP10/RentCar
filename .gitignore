@@ -14,6 +14,10 @@ target/
 pom.xml
 .gradle/
 .src/
+.idea/**
+.gradle/**
+.gradlew.bat
+.gradlew
 
 ### Eclipse ###
 .apt_generated
