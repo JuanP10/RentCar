@@ -1,3 +1,11 @@
+# Ignorar carpetas y archivos específicos
+.gradle/
+.idea/
+gradle/
+gradlew
+gradlew.bat
+
+# Ignorar archivos generados por Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -12,12 +20,9 @@ target/
 *.iml
 *.ipr
 pom.xml
-.gradle/
-.src/
+
+# IntelliJ IDEA directories
 .idea/**
-.gradle/**
-.gradlew.bat
-.gradlew
 
 ### Eclipse ###
 .apt_generated
@@ -34,6 +39,8 @@ pom.xml
 /dist/
 /nbdist/
 /.nb-gradle/
+
+# Build output directories
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
