@@ -68,6 +68,8 @@ services:
       - EUREKA_CLIENT_REGISTER-WITH-EUREKA=false
       - EUREKA_CLIENT_FETCH-REGISTRY=false
       - EUREKA_INSTANCE_PREFER-IP-ADDRESS=true
+    networks:
+        - monitoring
 
   prometheus:
     image: prom/prometheus:v2.44.0
@@ -85,6 +87,27 @@ services:
     restart: unless-stopped
     volumes:
       - ./grafana-datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    environment:
+      - STORAGE_TYPE=mem
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - monitoring
 
 networks:
   monitoring:

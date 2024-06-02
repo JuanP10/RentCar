@@ -11,3 +11,14 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://localhost:8070/eureka/
+
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+  zipkin:
+    base-url: http://zipkin:9411
+  sleuth:
+    sampler:
+      probability: 1.0

@@ -41,3 +41,14 @@ okta:
     client-id: SHbVPiKAJfZJTMGAJo1m1UTsqTahg5Wp
     client-secret: Pm0yreSt_IfOSyc4zfNmxFFZChedXulhLyolswPfgMDW-4_ArE8bnuonQ7elNDut
     issuer: https://dev-mpr2w3aqhjlniluq.us.auth0.com
+
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+  zipkin:
+    base-url: http://zipkin:9411
+  sleuth:
+    sampler:
+      probability: 1.0
