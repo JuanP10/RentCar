@@ -18,8 +18,8 @@ El sistema está construido bajo el enfoque de microservicios desacoplados, orqu
 
 ## ⚙️ Tecnologías Utilizadas
 
-- **Java + Spring Boot** para el backend de todos los servicios
-- **Spring Cloud** (Eureka, Config, Gateway)
+- **Java + Spring Boot (JPA, validation, Web, Lombok, Actuator, AMQP)** para el backend de todos los servicios
+- **Spring Cloud (Netflix Eureka, Sleuth, Zipkin, Stream)** (Eureka, Config, Gateway)
 - **RabbitMQ** para mensajería asíncrona entre servicios
 - **Docker Compose** para orquestación local de contenedores
 - **Zipkin** para trazabilidad distribuida
