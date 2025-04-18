@@ -24,7 +24,15 @@ El sistema está construido bajo el enfoque de microservicios desacoplados, orqu
 - **Docker Compose** para orquestación local de contenedores
 - **Zipkin** para trazabilidad distribuida
 - **Prometheus + Grafana** para monitoreo y visualización de métricas
-- **PostgreSQL / MongoDB** como motores de almacenamiento por servicio
+- **Okta + OAuth 2.0**: Autenticación y autorización segura de usuarios y servicios.
+
+## 🔐 Autenticación y Autorización con Okta
+
+La seguridad del sistema se refuerza mediante la integración con **Okta**, utilizando el protocolo **OAuth 2.0** para la autenticación y autorización de usuarios. Esto permite:
+
+- **Gestión centralizada de usuarios**: Control de acceso basado en roles y políticas definidas en Okta.
+- **Protección de endpoints**: Asegura que solo usuarios autenticados puedan acceder a los servicios.
+- **Validación de tokens JWT**: Verificación de la autenticidad y validez de los tokens emitidos por Okta.
 
 
 ## 🔍 Observabilidad y Trazabilidad
