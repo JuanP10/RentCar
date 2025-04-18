@@ -44,7 +44,7 @@ La seguridad del sistema se refuerza mediante la integración con **Okta**, util
 
 ## 🐳 Orquestación con Docker Compose
 
-Cada componente es desplegado como contenedor independiente. Se provee un archivo `docker-compose.yml` que permite levantar todo el sistema con un el comando: **docker-compose up --build**
+Cada componente es desplegado como contenedor independiente. Se provee un archivo `docker-compose.yml` que permite levantar todo el sistema con un el comando: `docker-compose up --build`
 
 
 # ✍️ Autor
